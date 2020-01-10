@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Dir { LEFT, UP, DOWN, RIGHT }
+
 public class Move : MonoBehaviour
 {
     Vector2 size;
@@ -12,19 +14,19 @@ public class Move : MonoBehaviour
         size = GetComponent<SpriteRenderer>().bounds.size;
     }
 
-    public void MoveInADir(int dir) {
+    public void MoveInADir(Dir dir) {
         var pos = transform.position;
         switch (dir) {
-            case 0:
+            case Dir.LEFT:
                 pos.x -= size.x;
                 break;
-            case 1:
+            case Dir.UP:
                 pos.y += size.y;
                 break;
-            case 2:
+            case Dir.DOWN:
                 pos.y -= size.y;
                 break;
-            case 3:
+            case Dir.RIGHT:
                 pos.x += size.x;
                 break;
         }
